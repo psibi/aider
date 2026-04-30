@@ -34,11 +34,11 @@ EXCEPTIONS = [
     ExInfo("InvalidRequestError", True, None),
     ExInfo("JSONSchemaValidationError", True, None),
     ExInfo("NotFoundError", False, None),
-    # ExInfo(
-    #     "PermissionDeniedError",
-    #     False,
-    #     "Permission was denied. Check your API key and/or credentials.",
-    # ),
+    ExInfo(
+        "PermissionDeniedError",
+        False,
+        "Permission was denied. Check your API key and/or credentials.",
+    ),
     ExInfo("OpenAIError", True, None),
     ExInfo(
         "RateLimitError",
@@ -66,6 +66,9 @@ class LiteLLMExceptions:
 
     def _load(self, strict=False):
         import litellm
+        # Can be remove once we use newer litellm that includes this
+        # https://github.com/BerriAI/litellm/pull/20960
+        from litellm.exceptions import PermissionDeniedError
 
         for var in dir(litellm):
             # Filter by BaseException because instances of non-exception classes cannot be caught.
