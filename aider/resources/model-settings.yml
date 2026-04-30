@@ -3139,6 +3139,7 @@
   use_temperature: false
   editor_model_name: deepseek/deepseek-v4-flash
   editor_edit_format: editor-diff
+  accepts_settings: ["thinking_tokens", "reasoning_effort"]
 
 - name: deepseek/deepseek-v4-pro
   edit_format: diff
@@ -3152,3 +3153,4 @@
   use_temperature: false
   editor_model_name: deepseek/deepseek-v4-flash
   editor_edit_format: editor-diff
+  accepts_settings: ["thinking_tokens", "reasoning_effort"]
